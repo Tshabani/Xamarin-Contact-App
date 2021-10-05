@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Contacts.ContactPage"
+             Title="Contacts">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked="OnNoteAddedClicked" />
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="listView"
+              Margin="20"
+              ItemSelected="OnListViewItemSelected"
+              HasUnevenRows="True"
+              SeparatorVisibility="Default"
+              SeparatorColor="Gray"
+              >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+
+                <ViewCell>
+
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+
+                        <StackLayout>
+                            <Label
+                                VerticalOptions="CenterAndExpand"
+                                Text="&#xe901;"
+                                FontFamily="icomoon.ttf#"
+                                FontSize="60"
+                                />
+                        </StackLayout>   
+                        
+                        <StackLayout Orientation="Vertical">
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Name :" 
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>     
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Email :" 
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Email}" />
+                            </StackLayout>     
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Contact Number :" 
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding ContactNumber}" />
+                            </StackLayout>     
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Date :" 
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}}" />
+                            </StackLayout>
+                            
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    
+                </ViewCell>
+                
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
